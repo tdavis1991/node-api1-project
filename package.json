@@ -1,0 +1,19 @@
+{
+  "name": "node-api1-project",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon index.js"
+  },
+  "repository": "https://github.com/tdavis1991/node-api1-project.git",
+  "author": "<aod.td1105@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "short-id": "0.1.0-1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.3"
+  }
+}
