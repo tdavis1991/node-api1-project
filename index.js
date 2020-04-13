@@ -46,7 +46,7 @@ server.post('/api/users', (req, res) => {
 
 //Delete user with id
 server.delete('/api/users/:id', (req, res) => {
-    const user = getUsersById(req.params.id)
+    const user = db.getUsersById(req.params.id)
 
     if(user) {
         db.deleteUser(user)
@@ -60,6 +60,22 @@ server.delete('/api/users/:id', (req, res) => {
 })
 
 //Update user
+server.put('/api/users/:id', (req, res) => {
+    const user = getUsersById(req.params.id)
+
+    if(user) {
+        const updatedUser = db.updateUser(user.id, {
+            name: req.params.name || user.name,
+            bio: req.params.bio || user.bio
+        })
+
+        res.json(updatedUser)
+    }else {
+        res.status(404).json({
+            message: 'User not found'
+        })
+    }
+})
 
 server.listen(8080, () => {
     console.log('server started at port 8080')

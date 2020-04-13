@@ -25,12 +25,23 @@ function createUser(data) {
 }
 
 function deleteUser(id) {
-    users = users.filter(u => u.id != id)
+    return users = users.filter(u => u.id != id)
+}
+
+function updateUser(id, data) {
+    const index = users.findIndex(u => u.id === id)
+    users[index] = {
+        ...users[index],
+        ...data
+    }
+
+    return users[index]
 }
 
 module.exports = {
     getUsers,
     getUsersById,
     createUser,
-    deleteUser
+    deleteUser,
+    updateUser
 }
